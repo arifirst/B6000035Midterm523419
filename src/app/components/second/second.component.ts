@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-second',
@@ -9,7 +9,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class SecondComponent implements OnInit {
 
   productForm = new FormGroup({
-    
+    id: new FormControl(''),
+    name: new FormControl(''),
+    detail: new FormControl(''),
+    guantity: new FormControl('',[Validators.required]),
+    price: new FormControl('')
+
   });
 
   productType: string[] = ['CPU','RAM','HDD','Mainboard'];
@@ -18,5 +23,7 @@ export class SecondComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
 
 }
